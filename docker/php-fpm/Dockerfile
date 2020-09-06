@@ -10,6 +10,8 @@ docker-php-ext-install zip
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git && \
-    apt-get install -y unzip
+    apt-get install -y unzip && \
+    apt-get install -y nodejs && \
+    apt-get install -y npm
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

@@ -30,9 +30,12 @@ composer-install:
 dump-autoload:
 	@$(FPM) composer dump-autoload
 
+npm-install:
+	@$(FPM) npm i
+
 frontend:
-	@$(SUDO) npm run watch-poll
+	@$(FPM) npm run watch-poll
 
 restart: stop build start frontend
 
-deploy: env build start composer-install dump-autoload keygen migrate frontend
+deploy: env build start composer-install dump-autoload keygen migrate npm-install frontend
