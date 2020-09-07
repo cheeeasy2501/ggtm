@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\DatabaseFieldNames as Fields;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,8 +16,8 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->char('title', 255);
-            $table->char('description', 255);
+            $table->char(Fields::TITLE, 255);
+            $table->char(Fields::DESCRIPTION, 255);
             $table->timestamps();
         });
     }

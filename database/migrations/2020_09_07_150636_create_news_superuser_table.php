@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsUserTable extends Migration
+class CreateNewsSuperUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateNewsUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('news_user', function (Blueprint $table) {
+        Schema::create('news_superusers', function (Blueprint $table) {
             $table->bigInteger('news_id')->unsigned();
             $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
 
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('superuser_id')->unsigned();
+            $table->foreign('superuser_id')->references('id')->on('superusers')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateNewsUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news_user');
+        Schema::dropIfExists('news_superusers');
     }
 }
