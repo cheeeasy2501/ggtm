@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\News;
 use App\Notifications\ResetPassword;
 use App\Notifications\VerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -104,5 +105,10 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function news()
+    {
+        return $this->belongsToMany(app(News::class));
     }
 }
