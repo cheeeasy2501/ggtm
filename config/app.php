@@ -22,7 +22,7 @@ return [
     |
     | This value determines the "environment" your application is currently
     | running in. This may determine how you prefer to configure various
-    | services the application utilizes. Set this in your ".env" file.
+    | services the application utilizes. Set this in your ".env.example" file.
     |
     */
 
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,14 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
+
+    'locales' => [
+        'en' => 'EN',
+        'zh-CN' => '中文',
+        'es' => 'ES',
+        'ru' => 'RU'
+    ],
 
     /*
     |--------------------------------------------------------------------------
