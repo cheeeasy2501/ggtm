@@ -22,4 +22,9 @@ class News extends Model
     {
         return $this->belongsToMany(app(User::class));
     }
+
+    public function comments()
+    {
+        return $this->hasMany(app(Comment::class));
+    }
 }

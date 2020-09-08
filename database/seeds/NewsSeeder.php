@@ -11,14 +11,8 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i <= 50; $i++) {
-            DB::table('news')->insert([
-                'id' => $i,
-                'title' => 'News - '.$i,
-                'content' => Str::random(150),
-                'created_at' => DB::raw('CURRENT_TIMESTAMP'),
-                'updated_at' => DB::raw('CURRENT_TIMESTAMP')
-            ]);
-        }
+        factory(App\Models\News::class, 50)->create()->each(function ($news) {
+            $news->comments()->saveMany(factory(App\Models\Comment::class, 10)->make());
+        });
     }
 }

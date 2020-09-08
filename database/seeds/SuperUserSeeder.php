@@ -12,8 +12,8 @@ class SuperUserSeeder extends Seeder
     public function run()
     {
         for($i = 1; $i <= 3; $i++) {
-            DB::table('users')->insert([
-                'user_role_id' => $i,
+            DB::table('superusers')->insert([
+                'user_role_id' => ''.$i,
                 'name' => Str::random(10),
                 'email' => 'admin'. $i .'@gmail.com',
                 'password' => Hash::make('password'),

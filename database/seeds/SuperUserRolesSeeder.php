@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SupeUserRoles extends Seeder
+class SuperUserRolesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,9 +20,10 @@ class SupeUserRoles extends Seeder
 
         foreach ($roles as $key => $role) {
             $num = (int)$key + 1;
-            DB::table('super_user_roles')->insert([
+            DB::table('superusers_roles')->insert([
                 'id' => $num,
-                'role_name' => $role,
+                'name' => $role,
+                'permissions' => 'test permiss'.$num
             ]);
         }
     }
