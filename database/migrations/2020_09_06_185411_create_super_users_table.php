@@ -26,6 +26,8 @@ class CreateSuperUsersTable extends Migration
             $table->date(Fields::BIRTHDAY)->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign(Fields::USER_ROLE_ID)->references('id')->on('superusers_roles');
         });
     }
 
